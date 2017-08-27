@@ -40,8 +40,8 @@
     <middle>
         <section title="Introduction">
             <t>
-                This vocabulary restricts the JSON Schema Validation keywords to a clear
-                subset which removes ambiguities and inherent invalid schemas.
+                This vocabulary restricts the JSON Schema Validation keywords to 
+                a clear subset which removes ambiguities and inherent invalid schemas.
             </t>
             <t>
                 If a JSON Schema follows these rules it is easier for processor and
@@ -49,28 +49,12 @@
                 maintainability of a schema.
             </t>
             <t>
+                It includes also some new keywords from the OpenAPI v3 specification
+                which are dedicated to code generation.
+            </t>
+            <t>
                 This specification should be seen as extension to the JSON Schema
                 draft-wright-json-schema-validation-00 specification.
-            </t>
-            <t>
-                This specification has the following goals:
-            </t>
-            <t>
-                <list style="symbols">
-                    <t>
-                        To not introduce new keywords so that all existing schema
-                        processors also work with this specification.
-                    </t>
-                    <t>
-                        To build a JSON Schema standard which can also be used in 
-                        the OpenAPI specification where code generation is a big concern.
-                    </t>
-                    <t>
-                        Not to build a JSON Schema to describe every possible JSON 
-                        structure. Instead to focus on the 80% use case and describe
-                        these structures in a clean way.
-                    </t>
-                </list>
             </t>
         </section>
         <section title="Conventions and Terminology">
