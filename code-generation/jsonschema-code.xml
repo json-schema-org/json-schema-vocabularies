@@ -81,13 +81,18 @@
                 rules.
             </t>
         </section>
-        <section title="Restrictions">
+        <section title="Restriction rules">
             <t>
-                The specification distinguishes between three schema types: Definition, 
-                Combination and Reference.
+                In the JSON Schema core specification all keywords are optional and
+                are applied in context with the actual data. The idea of this specification
+                is to build schemas which have a distinct meaning independent of 
+                the actual data and which can be used to generate i.e. class representations.
+                Because of this we must restrict and require some specific keywords.
             </t>
             <t>
-                The distinction is made based on the used keywords.
+                In this specification every schema is exactly assigned to a specific
+                type of schema: Definition, Combination or Reference. The distinction 
+                is made based on the used keywords.
             </t>
             <section title="Definition">
                 <t>
@@ -101,7 +106,9 @@
                             "object", "array", "boolean", "number", "integer" or "string"
                         </t>
                         <t>
-                            Every schema of type "object" MUST have a "title" keyword.
+                            Every schema of type "object" MUST have a "title" keyword. This
+                            is required so that code generators can build class names or other
+                            identifiers based on this title.
                         </t>
                         <t>
                             Every schema of type "object" is either a struct (MUST have
@@ -114,7 +121,8 @@
                             "number", "string") or reference schemas.
                         </t>
                         <t>
-                            The "patternProperties" keyword is not supported.
+                            It is not possible to mix multiple constraints i.e. a schema
+                            of type "string" can only use the keywords "minLength", etc.
                         </t>
                     </list>
                 </t>
@@ -157,20 +165,50 @@
                 </t>
             </section>
         </section>
-        <section title="Validation">
+
+        <section title="Not supported keywords">
             <t>
-                JSON Schema validators are implemented in a way that they validate json data alongside 
-                the data and validate this data according to the keywords which are available. So it is 
-                possible to decide which validation keywords should be used depending on the actual data.
+                The following keywords are not supported. Not supported means that 
+                they have no special meaning in this specification and code generators
+                may simply ignore those keywords.
             </t>
             <t>
-                If a schema follows the rules defined in this specification it can be used independently 
-                of the actual data. This means that it is possible to generate i.e. a class representation 
-                of the JSON Schema only based on the schema.
+                <list style="symbols">
+                    <t>
+                        The "patternProperties" keyword is not supported.
+                    </t>
+                    <t>
+                        The "type" keyword MUST be a string. The array notation
+                        is not supported.
+                    </t>
+                    <t>
+                        The "null" type is not supported
+                    </t>
+                    <t>
+                        The "not" keyword is not supported
+                    </t>
+                    <t>
+                        The "dependencies" keyword is not supported
+                    </t>
+                    <t>
+                        The "additionalItems" keywords is nt supported
+                    </t>
+                </list>
+            </t>
+        </section>
+        
+        <section title="Validation keywords">
+            <t>
+                This specification restricts the usage of the validation keywords.
+                Which keywords are allowed depends on the schema type.
             </t>
             <t>
-                Because of this critical design change the schema keywords must have some restrictions.
-                The following section describes the behaviour of each keyword.
+                The following chapter lists all available keywords and describes
+                the concrete behaviour.
+            </t>
+            <t>
+                If not otherwise noted the behaviour of a keyword is identical
+                to the <xref target="json-schema-validation">JSON Schema validation</xref> specification.
             </t>
             <section title="Definition keywords">
                 <t>
@@ -178,7 +216,16 @@
                 </t>
                 <section title="Common keywords">
                     <t>
-                        The following keywords can be used in any definition schema.
+                        The following keywords can be used in any definition schema:
+                    </t>
+                    <t>
+                        <list style="symbols">
+                            <t>title</t>
+                            <t>description</t>
+                            <t>type</t>
+                            <t>nullable</t>
+                            <t>deprecated</t>
+                        </list>
                     </t>
                     <section title="title">
                         <t>
@@ -214,10 +261,6 @@
                             ("boolean", "object", "array", "number", or "string"),
                             or "integer" which matches any number with a zero fractional part.
                         </t>
-                        <t>
-                            An instance validates if and only if the instance is in any of the sets listed
-                            for this keyword.
-                        </t>
                     </section>
                     <section title="nullable">
                         <t>
@@ -241,7 +284,16 @@
                 <section title="Object keywords">
                     <t>
                         If a schema has a "type" keyword which is "object" the following validation
-                        keywords can be used.
+                        keywords can be used:
+                    </t>
+                    <t>
+                        <list style="symbols">
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.15">required</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.16">properties</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.18">additionalProperties</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.13">maxProperties</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.14">minProperties</eref></t>
+                        </list>
                     </t>
                     <t>
                         An object must be either a struct or map type. A struct object contains
@@ -252,19 +304,6 @@
                         Each object type MUST have also a "title" keyword. The title may be used by a
                         generator to determine a class name for a schema.
                     </t>
-                    <section title="required">
-                        <t>
-                            The value of this keyword MUST be an array.
-                            Elements of this array, if any, MUST be strings, and MUST be unique.
-                        </t>
-                        <t>
-                            An object instance is valid against this keyword if every item in the array is
-                            the name of a property in the instance.
-                        </t>
-                        <t>
-                            Omitting this keyword has the same behavior as an empty array.
-                        </t>
-                    </section>
                     <section title="Struct keywords">
                         <t>
                             A struct is an object which MUST have at least a "type",
@@ -288,25 +327,6 @@
 ]]>
                             </artwork>
                         </figure>
-                        <section title="properties">
-                            <t>
-                                The value of "properties" MUST be an object.
-                                Each value of this object MUST be a valid JSON Schema.
-                            </t>
-                            <t>
-                                This keyword determines how child instances validate for objects,
-                                and does not directly validate the immediate instance itself.
-                            </t>
-                            <t>
-                                Validation succeeds if, for each name that appears in both
-                                the instance and as a name within this keyword's value, the child
-                                instance for that name successfully validates against the
-                                corresponding schema.
-                            </t>
-                            <t>
-                                Omitting this keyword has the same behavior as an empty object.
-                            </t>
-                        </section>
                     </section>
                     <section title="Map keywords">
                         <t>
@@ -326,104 +346,32 @@
 ]]>
                             </artwork>
                         </figure>
-                        <section title="additionalProperties">
-                            <t>
-                                The value of "additionalProperties" MUST be a valid JSON Schema.
-                            </t>
-                            <t>
-                                This keyword determines how child instances validate for objects,
-                                and does not directly validate the immediate instance itself.
-                            </t>
-                            <t>
-                                For all such properties, validation succeeds if the child instance
-                                validates against the "additionalProperties" schema.
-                            </t>
-                            <t>
-                                Omitting this keyword has the same behavior as an empty schema.
-                            </t>
-                        </section>
-                        <section title="maxProperties">
-                            <t>
-                                The value of this keyword MUST be a non-negative integer.
-                            </t>
-                            <t>
-                                An object instance is valid against "maxProperties" if its
-                                number of properties is less than, or equal to, the value of this
-                                keyword.
-                            </t>
-                        </section>
-                        <section title="minProperties">
-                            <t>
-                                The value of this keyword MUST be a non-negative integer.
-                            </t>
-                            <t>
-                                An object instance is valid against "minProperties" if its
-                                number of properties is greater than, or equal to, the value of this
-                                keyword.
-                            </t>
-                            <t>
-                                Omitting this keyword has the same behavior as a value of 0.
-                            </t>
-                        </section>
                     </section>
                 </section>
                 <section title="Array keywords">
                     <t>
                         If a schema has a "type" keyword which is "array" the following validation
-                        keywords can be used.
+                        keywords can be used:
                     </t>
-                    <section title="items">
-                        <t>
-                            The value of "items" MUST be an object. It MUST contain only
-                            "object", "number", "integer" or "string" schemas.
-                        </t>
-                        <t>
-                            This keyword determines how child instances validate for arrays,
-                            and does not directly validate the immediate instance itself.
-                        </t>
-                        <t>
-                            Omitting this keyword has the same behavior as an empty schema.
-                        </t>
-                    </section>
-                    <section title="maxItems">
-                        <t>
-                            The value of this keyword MUST be a non-negative integer.
-                        </t>
-                        <t>
-                            An array instance is valid against "maxItems" if its size is
-                            less than, or equal to, the value of this keyword.
-                        </t>
-                    </section>
-                    <section title="minItems">
-                        <t>
-                            The value of this keyword MUST be a non-negative integer.
-                        </t>
-                        <t>
-                            An array instance is valid against "minItems" if its size is
-                            greater than, or equal to, the value of this keyword.
-                        </t>
-                        <t>
-                            Omitting this keyword has the same behavior as a value of 0.
-                        </t>
-                    </section>
-                    <section title="uniqueItems">
-                        <t>
-                            The value of this keyword MUST be a boolean.
-                        </t>
-                        <t>
-                            If this keyword has boolean value false, the instance validates
-                            successfully. If it has boolean value true, the instance validates
-                            successfully if all of its elements are unique.
-                        </t>
-                        <t>
-                            Omitting this keyword has the same behavior as a value of false.
-                        </t>
-                    </section>
+                    <t>
+                        <list style="symbols">
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.9">items</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.10">maxItems</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.11">minItems</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.12">uniqueItems</eref></t>
+                        </list>
+                    </t>
                 </section>
                 <section title="Scalar keywords">
                     <t>
                         If a schema has a "type" keyword which is either "boolean", "number" or "string" the
-                        following validation keywords can be used.
+                        following validation keywords can be used:
+                    </t>
+                    <t>
+                        <list style="symbols">
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-7">format</eref></t>
+                            <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.20">enum</eref></t>
+                        </list>
                     </t>
                     <section title="format">
                         <t>
@@ -453,19 +401,6 @@
                             back to the type alone, as if the format is not specified.
                         </t>
                     </section>
-                    <section title="enum">
-                        <t>
-                            The value of this keyword MUST be an array. This array SHOULD have at
-                            least one element. Elements in the array SHOULD be unique.
-                        </t>
-                        <t>
-                            An instance validates successfully against this keyword if its value is
-                            equal to one of the elements in this keyword's array value.
-                        </t>
-                        <t>
-                            Elements in the array must contain only string or number values.
-                        </t>
-                    </section>
                     <section title="Boolean keywords">
                         <t>
                             If a schema has a "type" keyword which is "boolean" no validation keywords
@@ -475,120 +410,45 @@
                     <section title="Number keywords">
                         <t>
                             If a schema has a "type" keyword which is either "number" or "integer" the
-                            following validation keywords can be used.
+                            following validation keywords can be used:
                         </t>
-                        <section title="multipleOf">
-                            <t>
-                                The value of "multipleOf" MUST be a number, strictly greater than 0.
-                            </t>
-                            <t>
-                                A numeric instance is valid only if division by this keyword's value results in
-                                an integer.
-                            </t>
-                        </section>
-                        <section title="maximum">
-                            <t>
-                                The value of "maximum" MUST be a number, representing an inclusive upper limit
-                                for a numeric instance.
-                            </t>
-                            <t>
-                                If the instance is a number, then this keyword validates only if the instance is
-                                less than or exactly equal to "maximum".
-                            </t>
-                        </section>
-                        <section title="exclusiveMaximum">
-                            <t>
-                                The value of "exclusiveMaximum" MUST be number, representing an exclusive upper
-                                limit for a numeric instance.
-                            </t>
-                            <t>
-                                If the instance is a number, then the instance is valid only if it has a value
-                                strictly less than (not equal to) "exclusiveMaximum".
-                            </t>
-                        </section>
-                        <section title="minimum">
-                            <t>
-                                The value of "minimum" MUST be a number, representing an inclusive lower limit
-                                for a numeric instance.
-                            </t>
-                            <t>
-                                If the instance is a number, then this keyword validates only if the instance is
-                                greater than or exactly equal to "minimum".
-                            </t>
-                        </section>
-                        <section title="exclusiveMinimum">
-                            <t>
-                                The value of "exclusiveMinimum" MUST be number, representing an exclusive lower
-                                limit for a numeric instance.
-                            </t>
-                            <t>
-                                If the instance is a number, then the instance is valid only if it has a value
-                                strictly greater than (not equal to) "exclusiveMinimum".
-                            </t>
-                        </section>
+                        <t>
+                            <list style="symbols">
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.1">multipleOf</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.2">maximum</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.3">exclusiveMaximum</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.4">minimum</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.5">exclusiveMinimum</eref></t>
+                            </list>
+                        </t>
                     </section>
                     <section title="String keywords">
                         <t>
                             If a schema has a "type" keyword which is "string" the following validation
-                            keywords can be used.
+                            keywords can be used:
                         </t>
-                        <section title="maxLength">
-                            <t>
-                                The value of this keyword MUST be a non-negative integer.</t>
-                            <t>
-                                A string instance is valid against this keyword if its
-                                length is less than, or equal to, the value of this keyword.
-                            </t>
-                            <t>
-                                The length of a string instance is defined as the number of its
-                                characters as defined by <xref target="RFC7159">RFC 7159</xref>.
-                            </t>
-                        </section>
-                        <section title="minLength">
-                            <t>
-                                The value of this keyword MUST be a non-negative integer.
-                            </t>
-                            <t>
-                                A string instance is valid against this keyword if its
-                                length is greater than, or equal to, the value of this keyword.
-                            </t>
-
-                            <t>
-                                The length of a string instance is defined as the number of its
-                                characters as defined by <xref target="RFC7159">RFC 7159</xref>.
-                            </t>
-                            <t>
-                                Omitting this keyword has the same behavior as a value of 0.
-                            </t>
-                        </section>
-                        <section title="pattern">
-                            <t>
-                                The value of this keyword MUST be a string. This string SHOULD be a
-                                valid regular expression, according to the ECMA 262 regular expression
-                                dialect.
-                            </t>
-                            <t>
-                                A string instance is considered valid if the regular
-                                expression matches the instance successfully. Recall: regular
-                                expressions are not implicitly anchored.
-                            </t>
-                        </section>
+                        <t>
+                            <list style="symbols">
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.6">maxLength</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.7">minLength</eref></t>
+                                <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.8">pattern</eref></t>
+                            </list>
+                        </t>
                     </section>
                 </section>
             </section>
             <section title="Combination keywords">
                 <t>
-                    The following keywords can be used to describe a combination schema.
+                    The following keywords can be used to describe a combination schema:
+                </t>
+                <t>
+                    <list style="symbols">
+                        <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.22">allOf</eref></t>
+                        <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.23">anyOf</eref></t>
+                        <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-validation-00#section-5.24">oneOf</eref></t>
+                    </list>
                 </t>
                 <section title="allOf">
-                    <t>
-                        This keyword's value MUST be a non-empty array.
-                        Each item of the array MUST be a valid object.
-                    </t>
-                    <t>
-                        An instance validates successfully against this keyword if it validates
-                        successfully against all schemas defined by this keyword's value.
-                    </t>
                     <t>
                         The all of array should be used to express inheritance. The array
                         should list the most generic definition at the first position of
@@ -623,26 +483,6 @@
                         </artwork>
                     </figure>
                 </section>
-                <section title="anyOf">
-                    <t>
-                        This keyword's value MUST be a non-empty array.
-                        Each item of the array MUST be a valid object.
-                    </t>
-                    <t>
-                        An instance validates successfully against this keyword if it validates
-                        successfully against at least one schema defined by this keyword's value.
-                    </t>
-                </section>
-                <section title="oneOf">
-                    <t>
-                        This keyword's value MUST be a non-empty array.
-                        Each item of the array MUST be a valid object.
-                    </t>
-                    <t>
-                        An instance validates successfully against this keyword if it validates
-                        successfully against exactly one schema defined by this keyword's value.
-                    </t>
-                </section>
                 <section title="discriminator">
                     <t>
                         The value of this keyword MUST be an object.
@@ -654,34 +494,13 @@
             </section>
             <section title="Reference keywords">
                 <t>
-                    The following keywords can be used to describe a reference schema.
+                    The following keywords can be used to describe a reference schema:
                 </t>
-                <section title="$ref">
-                    <t>
-                        The "$ref" keyword is used to reference a schema, and provides the ability to
-                        validate recursive structures through self-reference.
-                    </t>
-                    <t>
-                        An object schema with a "$ref" property MUST be interpreted as a "$ref" reference.
-                        The value of the "$ref" property MUST be a URI Reference.
-                        Resolved against the current URI base, it identifies the URI of a schema to use.
-                        All other properties in a "$ref" object MUST be ignored.
-                    </t>
-                    <t>
-                        The URI is not a network locator, only an identifier. A schema need not be
-                        downloadable from the address if it is a network-addressable URL, and
-                        implementations SHOULD NOT assume they should perform a network operation when they
-                        encounter a network-addressable URI.
-                    </t>
-                    <t>
-                        A schema MUST NOT be run into an infinite loop against a schema. For example, if two
-                        schemas "#alice" and "#bob" both have an "allOf" property that refers to the other,
-                        a naive validator might get stuck in an infinite recursive loop trying to validate
-                        the instance.
-                        Schemas SHOULD NOT make use of infinite recursive nesting like this; the behavior is
-                        undefined.
-                    </t>
-                </section>
+                <t>
+                    <list style="symbols">
+                        <t><eref target="https://tools.ietf.org/html/draft-wright-json-schema-00#section-7">$ref</eref></t>
+                    </list>
+                </t>
             </section>
         </section>
         <section title="Schema">
