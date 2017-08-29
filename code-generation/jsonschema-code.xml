@@ -191,7 +191,7 @@
                         The "dependencies" keyword is not supported
                     </t>
                     <t>
-                        The "additionalItems" keywords is nt supported
+                        The "additionalItems" keyword is not supported
                     </t>
                 </list>
             </t>
