@@ -351,8 +351,13 @@
                     </t>
                     <section title="format">
                         <t>
-                            Primitives have an optional modifier keyword "format". There are several
-                            known formats to define in fine detail the data type being used.
+                            In the context of code generation the "format" keyword gives a hint
+                            about the concrete data type of a property. While the JSON schema
+                            validation specification defines many formats this specification 
+                            supports only the formats which are usable in the context of code 
+                            generation. I.e. if the format is "date-time" a code generator 
+                            could utilize the standard date class of the target programming language.
+                            A code generator should consider the following formats:
                         </t>
                         <t>
                             <list style="symbols">
@@ -365,16 +370,6 @@
                                 <t>date (as defined by full-date <xref target="RFC3339">RFC 3339</xref>)</t>
                                 <t>date-time (as defined by date-time <xref target="RFC3339">RFC 3339</xref>)</t>
                             </list>
-                        </t>
-                        <t>
-                            However, to support documentation needs, the format property is an open
-                            string-valued property, and can have any value. Formats such as "email",
-                            "uuid", and so on, MAY be used even though undefined by this specification.
-                        </t>
-                        <t>
-                            Types that are not accompanied by a format property follow the type definition
-                            in the JSON Schema. Tools that do not recognize a specific format MAY default
-                            back to the type alone, as if the format is not specified.
                         </t>
                     </section>
                     <section title="Boolean keywords">
