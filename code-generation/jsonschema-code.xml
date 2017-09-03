@@ -44,13 +44,9 @@
                 a clear subset which removes ambiguities and inherent invalid schemas.
             </t>
             <t>
-                If a JSON Schema follows these rules it is easier for processor and
+                If a JSON Schema follows these rules it is easier for processors and
                 code generators to consume. This leads to better results and
                 maintainability of a schema.
-            </t>
-            <t>
-                It includes also some new keywords from the OpenAPI v3 specification
-                which are dedicated to code generation.
             </t>
             <t>
                 This specification should be seen as extension to the JSON Schema
@@ -223,8 +219,6 @@
                             <t>title</t>
                             <t>description</t>
                             <t>type</t>
-                            <t>nullable</t>
-                            <t>deprecated</t>
                         </list>
                     </t>
                     <section title="title">
@@ -260,24 +254,6 @@
                             String values MUST be one of the six primitive types
                             ("boolean", "object", "array", "number", or "string"),
                             or "integer" which matches any number with a zero fractional part.
-                        </t>
-                    </section>
-                    <section title="nullable">
-                        <t>
-                            The value of this keyword MUST be boolean.
-                        </t>
-                        <t>
-                            Allows sending a null value for the defined schema.
-                            Default value is false.
-                        </t>
-                    </section>
-                    <section title="deprecated">
-                        <t>
-                            The value of this keyword MUST be boolean.
-                        </t>
-                        <t>
-                            Specifies that a property is deprecated and SHOULD be
-                            transitioned out of usage. Default value is false.
                         </t>
                     </section>
                 </section>
@@ -482,14 +458,6 @@
 ]]>
                         </artwork>
                     </figure>
-                </section>
-                <section title="discriminator">
-                    <t>
-                        The value of this keyword MUST be an object.
-                    </t>
-                    <t>
-                        The keyword MUST be only used in combination with the "oneOf" keyword.
-                    </t>
                 </section>
             </section>
             <section title="Reference keywords">
