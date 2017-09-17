@@ -82,8 +82,10 @@
                 In the JSON Schema core specification all keywords are optional and
                 are applied in context with the actual data. The idea of this specification
                 is to build schemas which have a distinct meaning independent of 
-                the actual data and which can be used to generate i.e. class representations.
-                Because of this we must restrict and require some specific keywords.
+                the actual data and which can be used to generate different representations 
+                i.e. model classes of a specific programming language. Because of 
+                this we must restrict existing keywords and must make specific keywords
+                mandatory depending on the context.
             </t>
             <t>
                 In this specification every schema is exactly assigned to a specific
@@ -109,7 +111,7 @@
                         <t>
                             Every schema of type "object" is either a struct (MUST have
                             a "properties" keyword) or a map (MUST have a "additionalProperties" 
-                            keyword)
+                            keyword).
                         </t>
                         <t>
                             Every schema of type "array" MUST have an "items" keyword.
@@ -118,7 +120,8 @@
                         </t>
                         <t>
                             It is not possible to mix multiple constraints i.e. a schema
-                            of type "string" can only use the keywords "minLength", etc.
+                            of type "string" can only use string specific validation 
+                            keywords i.e. "minLength".
                         </t>
                     </list>
                 </t>
@@ -132,11 +135,11 @@
                     <list style="symbols">
                         <t>
                             Every schema MUST have one of the following keywords:
-                            "allOf", "anyOf" or "oneOf"
+                            "allOf", "anyOf" or "oneOf".
                         </t>
                         <t>
                             The value must be an array which can contain only definition 
-                            (of type "object") or reference schemas.
+                            or reference schemas. These schemas MUST be of type "object".
                         </t>
                     </list>
                 </t>
@@ -166,7 +169,7 @@
             <t>
                 The following keywords are not supported. Not supported means that 
                 they have no special meaning in this specification and code generators
-                may simply ignore those keywords.
+                should ignore those keywords.
             </t>
             <t>
                 <list style="symbols">
@@ -178,16 +181,16 @@
                         is not supported.
                     </t>
                     <t>
-                        The "null" type is not supported
+                        The "null" type is not supported.
                     </t>
                     <t>
-                        The "not" keyword is not supported
+                        The "not" keyword is not supported.
                     </t>
                     <t>
-                        The "dependencies" keyword is not supported
+                        The "dependencies" keyword is not supported.
                     </t>
                     <t>
-                        The "additionalItems" keyword is not supported
+                        The "additionalItems" keyword is not supported.
                     </t>
                 </list>
             </t>
@@ -224,7 +227,7 @@
                     <section title="title">
                         <t>
                             The value of this keyword MUST be a string. Should only
-                            contain the characters "A-Z", "a-z" and "_"
+                            contain the characters "A-Z", "a-z" and "_".
                         </t>
                         <t>
                             Should be a distinct word which represents this schema,
@@ -243,7 +246,8 @@
                         <t>
                             Contains a general description of this property. Should only
                             contain simple text and no line breaks since the description
-                            is may be used in code comments or other contexts.
+                            is may be used in code comments or other character sensitive
+                            environments.
                         </t>
                     </section>
                     <section title="type">
