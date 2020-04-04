@@ -1,8 +1,10 @@
 # json-schema-vocabularies
 
-This repository is for discussing experimental vocabularies under consideration for standardization.  Vocabularies here are written in IETF draft format.  They may proceed to publication as I-Ds, or may simply become documented for general use on json-schema.org.
+This repository is for discussing possible extension vocabularies to be designed and documented outside of the formal JSON Schema organization's effort.  Starting with JSON Schema draft 2019-09, it is possible to create identifiable, re-usable 3rd-party vocabularies, which will be essential for JSON Schema's long-term success.  It is simply not possible to incorporate every idea and use case into the initial standard.  Not if we ever want it to be a standard and not just a draft!
 
-## Active vocabularies
+## Active vocabularies _(out of date)_
+
+_**NOTE:** This repository was originally set up with the intent to develop the vocabularies here.  That is no longer the case.  Instead, we are useing this as a holding area for ideas, and encouraging 3rd-parties interested in designing and writing plugins to look for and discuss ideas here.  The rest of this README has not yet been updated for this shift._
 
 The following vocabularies are currently considered in-scope.  Please open an issue to discuss adding another vocabulary to the active set.  These vocabularies may share some keywords and structure.  All of the current active vocabularies share two characteristics:
 
