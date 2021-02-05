@@ -31,6 +31,7 @@ The following attempts to be a curated collection of vocabularies that have been
 
 ### Accessing Instance and External Data
 
+<!-- Headerless tables have been requested https://github.com/github/cmark-gfm/issues/91 -->
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
