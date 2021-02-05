@@ -29,29 +29,14 @@ JSON Schema strives to be language-agnostic in order to foster as much adoption 
 
 The following attempts to be a curated collection of vocabularies that have been defined by third parties.  Often, they are submitted by developers who maintain JSON Schema validators and/or work on the specification directly.
 
-### JSON UI Schema
-
-|||
-|-|-|
-|**Goal**|To allow building UIs from a schema, mapping validation keywords to UI widgets, and hyper-schema links to form submission attributes and/or multi-form workflows.|
-|**Website**|https://github.com/json-schema-form/json-schema-form|
-|**Edited by**|@Anthropic|
-|**Known implementations**|[JSON Schema Form Core](https://github.com/json-schema-form/json-schema-form-core), [Angular Schema Form](https://github.com/Anthropic/angular-schema-form)|
-
-### JSON API Documentation Schema
-
-|||
-|-|-|
-|**Goal**|A minimal set of keywords to describe the usage of hyper-schemas within a defined API.  Authentication, authorization, and HTTP headers are areas that may be addressed by this vocabulary.  Unlike OpenAPI, RAML, etc., this format will be strictly complementarly to JSON Hyper-Schema, and assume its use as the primary hypermedia approach for the API being described.|
-|**Website**|_TBD_|
-|**Edited by**|[@Relequestual](https://github.com/Relequestual), [@handrews](https://github.com/handrews)|
-|**Known implementations**||
-
 ### Accessing Instance and External Data
 
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Website**|https://gregsdennis.github.io/json-everything/usage/vocabs-data.html|
+|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-data.html|
+|**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-data`|
+|**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/data`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
+|**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
