@@ -42,6 +42,8 @@ The following attempts to be a curated collection of vocabularies that have been
 |**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
 
+### Enhanced Item Uniqueness Detection
+
 |||
 |-|-|
 |**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
