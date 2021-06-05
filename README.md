@@ -41,3 +41,13 @@ The following attempts to be a curated collection of vocabularies that have been
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
+
+|||
+|-|-|
+|**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
+|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-unique-keys.html|
+|**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-unique-keys`|
+|**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/unique-keys`|
+|**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
+|**Project site**|https://github.com/gregsdennis/json-everything|
+|**Known implementations**|[JsonSchema.Net.UniqueKeys](https://www.nuget.org/packages/JsonSchema.Net.UniqueKeys/)|
