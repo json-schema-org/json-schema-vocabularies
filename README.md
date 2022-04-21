@@ -14,7 +14,7 @@ While the requirements of vocabularies and how JSON Schema interacts with them i
 
 <!-- The idea is to have as many here as possible. -->
 <!-- - [Understanding JSON Schema]()  I thought we had updated this for 2019-09. -->
-- [How Vocabularies Work](https://gregsdennis.github.io/json-everything/usage/schema-vocabs.html) by [@gregsdennis](https://github.com/gregsdennis)
+- [How Vocabularies Work](https://json-everything.net/json-schema/) by [@gregsdennis](https://github.com/gregsdennis) (see _Vocabularies_ tab)
 <!-- anyone else? kinda lonely here -->
 
 ## Tips for writing vocabularies
@@ -37,7 +37,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-data.html|
+|**Documentation**|https://json-everything.net/json-schema/ (_Vocab: Data_ tab)|
 |**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-data`|
 |**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/data`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
@@ -49,7 +49,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
-|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-unique-keys.html|
+|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-unique-keys.html (_Vocab: Unikey Keys_ tab)|
 |**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-unique-keys`|
 |**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/unique-keys`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
