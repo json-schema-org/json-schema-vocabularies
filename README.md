@@ -38,7 +38,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Documentation**|https://json-everything.net/json-schema/ (_Vocab: Data_ tab)|
+|**Documentation**|https://json-everything.net/json-schema#a-vocabulary-for-accessing-data-stored-in-json|
 |**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-data`|
 |**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/data`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
@@ -50,7 +50,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
-|**Documentation**|https://gregsdennis.github.io/json-everything/usage/vocabs-unique-keys.html (_Vocab: Unikey Keys_ tab)|
+|**Documentation**|https://json-everything.net/json-schema#a-vocabulary-for-identifying-uniqueness-of-array-items|
 |**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-unique-keys`|
 |**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/unique-keys`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
