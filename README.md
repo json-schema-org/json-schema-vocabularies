@@ -38,7 +38,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**||
-|**Documentation**|https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md (no explicit vocab, just mixed into the overall spec)|
+|**Documentation**|https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md<br>(no separate vocab, mixed into the overall spec)|
 |**Vocabulary ID**|`https://spec.openapis.org/oas/3.1/vocab/base`|
 |**Meta-schema ID**|`https://spec.openapis.org/oas/3.1/meta/base`|
 |**Edited by**| The OpenAPI [Team](https://github.com/OAI)|
