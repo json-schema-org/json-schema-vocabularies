@@ -32,13 +32,25 @@ JSON Schema strives to be language-agnostic in order to foster as much adoption 
 
 The following attempts to be a curated collection of vocabularies that have been defined by third parties.  Often, they are submitted by developers who maintain JSON Schema validators and/or work on the specification directly.
 
-### Accessing Instance and External Data
+### OpenAPI 3.1
 
 <!-- Headerless tables have been requested https://github.com/github/cmark-gfm/issues/91 -->
 |||
 |-|-|
+|**Goal**||
+|**Documentation**|https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md (no explicit vocab, just mixed into the overall spec)|
+|**Vocabulary ID**|`https://spec.openapis.org/oas/3.1/vocab/base`|
+|**Meta-schema ID**|`https://spec.openapis.org/oas/3.1/meta/base`|
+|**Edited by**| The OpenAPI [Team](https://github.com/OAI)|
+|**Project site**|https://openapis.org/|
+|**Known implementations**|[JsonSchema.Net.OpenApi](https://www.nuget.org/packages/JsonSchema.Net.OpenApi/)|
+
+### Accessing Instance and External Data
+
+|||
+|-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Documentation**|https://json-everything.net/json-schema#a-vocabulary-for-accessing-data-stored-in-json|
+|**Documentation**|https://json-everything.net/json-schema/#schema-data-2022|
 |**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-data`|
 |**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/data`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
