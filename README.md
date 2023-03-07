@@ -22,7 +22,7 @@ While the requirements of vocabularies and how JSON Schema interacts with them i
 
 As a minimum set of requirements, it is suggested that vocabularies:
 
-- are defined by some human-readable document that gives semantic meaning to the keywords it defines.  This can be a formal RFC, similar to the JSON Schema specfication, or something as simple as a README or a blog post.
+- are defined by some human-readable document that gives semantic meaning to the keywords it defines.  This can be a formal RFC, similar to the JSON Schema specification, or something as simple as a README or a blog post.
 - provide a meta-schema so that the keyword(s) can be syntactically validated within a schema.  It may be necessary to create meta-schemas for each draft to be supported by the new keyword(s).
 - are accompanied by at least one implementation, ideally manifested as a plugin to an existing validator.
 
