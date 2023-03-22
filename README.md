@@ -50,9 +50,9 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Documentation**|https://json-everything.net/json-schema/#schema-data-2022|
-|**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-data`|
-|**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/data`|
+|**Documentation**|https://json-everything.net/json-schema#schema-data-2022|
+|**Vocabulary ID**|`https://json-everything.net/vocabs-data-2022`|
+|**Meta-schema ID**|`https://json-everything.net/meta/data-2022`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
