@@ -50,21 +50,23 @@ The following attempts to be a curated collection of vocabularies that have been
 |||
 |-|-|
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
-|**Documentation**|https://json-everything.net/json-schema#schema-data-2022|
-|**Vocabulary ID**|`https://json-everything.net/vocabs-data-2022`|
-|**Meta-schema ID**|`https://json-everything.net/meta/data-2022`|
+|**Documentation**|https://docs.json-everything.net/schema/vocabs/data-2023|
+|**Vocabulary ID**|`https://docs.json-everything.net/schema/vocabs/data-2023`|
+|**Meta-schema ID**|`https://json-everything.net/schema/meta/vocab/data-2023`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
 
-### Enhanced Item Uniqueness Detection
+### Extended Array Validation
 
 |||
 |-|-|
 |**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
-|**Documentation**|https://json-everything.net/json-schema#a-vocabulary-for-identifying-uniqueness-of-array-items|
-|**Vocabulary ID**|`https://gregsdennis.github.io/json-everything/vocabs-unique-keys`|
-|**Meta-schema ID**|`https://gregsdennis.github.io/json-everything/meta/unique-keys`|
+|**Documentation**|https://docs.json-everything.net/schema/vocabs/array-ext|
+|**Vocabulary ID**|`https://docs.json-everything.net/schema/vocabs/array-ext`|
+|**Meta-schema ID**|`https://json-everything.net/meta/vocab/array-ext`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
-|**Known implementations**|[JsonSchema.Net.UniqueKeys](https://www.nuget.org/packages/JsonSchema.Net.UniqueKeys/)|
+|**Known implementations**|[JsonSchema.Net.UniqueKeys](https://www.nuget.org/packages/JsonSchema.Net.ArrayExt/)|
+
+_**NOTE** This was initially published as the UniqueItems vocabulary.  The ArrayExt extension supercedes that one._
