@@ -61,7 +61,7 @@ The following attempts to be a curated collection of vocabularies that have been
 
 |||
 |-|-|
-|**Goal**|To allow validation of items within arrays based on the values of specified properties within each item.  Addresses the ideas in issue [#22](https://github.com/json-schema-org/json-schema-vocabularies/issues/22).|
+|**Goal**|To provide extended validation of items within arrays.|
 |**Documentation**|https://docs.json-everything.net/schema/vocabs/array-ext|
 |**Vocabulary ID**|`https://docs.json-everything.net/schema/vocabs/array-ext`|
 |**Meta-schema ID**|`https://json-everything.net/meta/vocab/array-ext`|
