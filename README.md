@@ -52,7 +52,7 @@ The following attempts to be a curated collection of vocabularies that have been
 |**Goal**|To allow schemas to validate known keywords against data located within the instance being validated or in external sources.  Attempts to provide a solution for the highly-debated `$data` keyword.|
 |**Documentation**|https://docs.json-everything.net/schema/vocabs/data-2023|
 |**Vocabulary ID**|`https://docs.json-everything.net/schema/vocabs/data-2023`|
-|**Meta-schema ID**|`https://json-everything.net/schema/meta/vocab/data-2023`|
+|**Meta-schema ID**|`https://json-everything.net/meta/vocab/data-2023`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
 |**Known implementations**|[JsonSchema.Net.Data](https://www.nuget.org/packages/JsonSchema.Net.Data/)|
@@ -67,6 +67,6 @@ The following attempts to be a curated collection of vocabularies that have been
 |**Meta-schema ID**|`https://json-everything.net/meta/vocab/array-ext`|
 |**Edited by**|[@gregsdennis](https://github.com/gregsdennis)|
 |**Project site**|https://github.com/gregsdennis/json-everything|
-|**Known implementations**|[JsonSchema.Net.UniqueKeys](https://www.nuget.org/packages/JsonSchema.Net.ArrayExt/)|
+|**Known implementations**|[JsonSchema.Net.ArrayExt](https://www.nuget.org/packages/JsonSchema.Net.ArrayExt/)|
 
-_**NOTE** This was initially published as the UniqueItems vocabulary.  The ArrayExt extension supercedes that one._
+_**NOTE** This was initially published as the UniqueItems vocabulary.  The ArrayExt extension supersedes that one._
