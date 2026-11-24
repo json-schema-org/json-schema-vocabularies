@@ -15,7 +15,7 @@ While the requirements of vocabularies and how JSON Schema interacts with them i
 
 <!-- The idea is to have as many here as possible. -->
 <!-- - [Understanding JSON Schema]()  I thought we had updated this for 2019-09. -->
-- [How Vocabularies Work](https://json-everything.net/json-schema#vocabularies) by [@gregsdennis](https://github.com/gregsdennis)
+- [How Vocabularies Work](https://docs.json-everything.net/schema/vocabs) by [@gregsdennis](https://github.com/gregsdennis)
 <!-- anyone else? kinda lonely here -->
 
 ## Tips for writing vocabularies
