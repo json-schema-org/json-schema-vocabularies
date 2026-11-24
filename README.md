@@ -70,3 +70,14 @@ The following attempts to be a curated collection of vocabularies that have been
 |**Known implementations**|[JsonSchema.Net.ArrayExt](https://www.nuget.org/packages/JsonSchema.Net.ArrayExt/)|
 
 _**NOTE** This was initially published as the UniqueItems vocabulary.  The ArrayExt extension supersedes that one._
+### validonce cross-field rules
+
+|||
+|-|-|
+|**Goal**|To carry cross-field validation rules (required when, compare, at least one of, exactly one of, all or none) as data on a schema, so a server and its clients evaluate them identically.|
+|**Documentation**|https://github.com/metatoy/validonce/blob/main/docs/rule-format-v1.md|
+|**Vocabulary ID**|`https://schemas.metatoy.com/validonce/vocab/rules-v1`|
+|**Meta-schema ID**|`https://schemas.metatoy.com/validonce/dialect-v1.json`|
+|**Edited by**|[Metatoy](https://github.com/metatoy)|
+|**Project site**|https://github.com/metatoy/validonce|
+|**Known implementations**|[validonce](https://www.npmjs.com/package/validonce) (TypeScript), [validonce](https://pypi.org/project/validonce/) (Python), [Validonce](https://www.nuget.org/packages/Validonce/) (.NET)|
