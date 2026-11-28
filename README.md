@@ -80,4 +80,4 @@ _**NOTE** This was initially published as the UniqueItems vocabulary.  The Array
 |**Meta-schema ID**|`https://schemas.metatoy.com/validonce/dialect-v1.json`|
 |**Edited by**|[Metatoy](https://github.com/metatoy)|
 |**Project site**|https://github.com/metatoy/validonce|
-|**Known implementations**|[validonce](https://www.npmjs.com/package/validonce) (TypeScript), [validonce](https://pypi.org/project/validonce/) (Python), [Validonce](https://www.nuget.org/packages/Validonce/) (.NET)|
+|**Known implementations**|[validonce](https://www.npmjs.com/package/validonce) (TypeScript), [validonce](https://pypi.org/project/validonce/) (Python), [Validonce](https://www.nuget.org/packages/Validonce/) (.NET), [validonce/go](https://pkg.go.dev/github.com/metatoy/validonce/go) (Go), [validonce-core](https://central.sonatype.com/artifact/com.metatoy/validonce-core) (Java and Kotlin)|
